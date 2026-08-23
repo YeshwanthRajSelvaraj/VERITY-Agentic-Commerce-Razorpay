@@ -25,6 +25,15 @@ app.include_router(agent_router, prefix=settings.API_PREFIX)
 app.include_router(webhook_router, prefix=settings.API_PREFIX)
 app.include_router(mcp_router, prefix=settings.API_PREFIX)
 
+@app.get("/")
+def root_check():
+    return {
+        "status": "online",
+        "service": settings.PROJECT_NAME,
+        "docs_url": "/docs",
+        "health_url": "/api/health"
+    }
+
 @app.get("/api/health")
 def health_check():
     return {

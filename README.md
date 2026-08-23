@@ -274,7 +274,7 @@ OK (100% Passing)
 - Python 3.10+
 - Node.js 18+ and npm
 
-### 1. Initialize Backend API Server
+### 1. Initialize Backend API Server Locally
 ```bash
 # Clone the repository
 git clone https://github.com/YeshwanthRajSelvaraj/VERITY-Agentic-Commerce-Razorpay.git
@@ -288,13 +288,39 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 - Interactive OpenAPI Docs: `http://localhost:8000/docs`
 - MCP Tools Manifest: `http://localhost:8000/api/mcp/tools`
 
-### 2. Initialize Frontend Enterprise Client
+### 2. Initialize Frontend Enterprise Client Locally
 ```bash
 cd ../frontend
 npm install
 npm run dev
 ```
 - Client Dashboard: `http://localhost:5173`
+
+---
+
+## ✦ Production Cloud Deployment (Render & Vercel)
+
+### Deploy Backend to Render (Free Web Service)
+1. Navigate to [dashboard.render.com](https://dashboard.render.com) and click **New + > Web Service**.
+2. Connect the GitHub repository `YeshwanthRajSelvaraj/VERITY-Agentic-Commerce-Razorpay`.
+3. Configure settings:
+   - **Root Directory**: `backend`
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Health Check Path**: `/api/health`
+4. Click **Deploy Web Service**. Your backend will be live at `https://verity-backend.onrender.com`.
+
+### Deploy Frontend to Vercel (Production Edge)
+1. Navigate to [vercel.com/new](https://vercel.com/new) and import `YeshwanthRajSelvaraj/VERITY-Agentic-Commerce-Razorpay`.
+2. Configure settings:
+   - **Root Directory**: `frontend`
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. Add Environment Variable (Optional):
+   - `VITE_API_URL`: `https://your-backend.onrender.com` (or proxy via rewrites)
+4. Click **Deploy**. Your enterprise client is live on Vercel Edge!
 
 ---
 
