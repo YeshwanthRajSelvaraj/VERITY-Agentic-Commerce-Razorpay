@@ -217,9 +217,11 @@ class CatalogService:
         self._products = {p.id: p.model_copy(deep=True) for p in ALL_PRODUCTS}
         self.simulated_drift_type: Optional[str] = None
 
-    def get_all_products(self) -> List[Product]:
+    def get_all_products(self, merchant_id: Optional[str] = None) -> List[Product]:
         prods = []
         for p in self._products.values():
+            if merchant_id and p.merchant_id != merchant_id:
+                continue
             p_copy = p.model_copy(deep=True)
             if self.simulated_drift_type == "PRICE_SPIKE" and p.id == "nt_kb_01":
                 p_copy.price_inr = 5499.0
