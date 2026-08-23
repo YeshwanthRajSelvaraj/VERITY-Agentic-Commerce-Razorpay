@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://verity-backend.onrender.com/api/:path*"
+      "destination": "https://verity-backend-1uon.onrender.com/api/:path*"
     },
     {
       "source": "/((?!api).*)",
