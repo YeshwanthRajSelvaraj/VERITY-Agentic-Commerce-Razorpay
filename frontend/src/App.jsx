@@ -97,7 +97,7 @@ export default function App() {
       <!DOCTYPE html>
       <html>
       <head>
-        <title>Razorpay ⚡ Live Test Checkout</title>
+        <title>Razorpay Test Checkout</title>
         <meta charset="utf-8">
         <style>
           body {
@@ -139,13 +139,13 @@ export default function App() {
       </head>
       <body>
         <div class="card" id="checkout">
-          <div class="logo">Razorpay ⚡ Test Checkout</div>
+          <div class="logo">Razorpay Test Checkout</div>
           <div class="order-id">${order.order_id}</div>
           <div class="item">${order.item_name}</div>
           <div class="merchant">Merchant: <strong>${order.merchant}</strong></div>
           <div class="amount">₹${order.total_paid_inr?.toLocaleString('en-IN')}</div>
           <button class="btn" onclick="simulatePayment()">Authorize & Pay with Test Card</button>
-          <div class="badge">🔒 PoPI Commitment & Policy Invariants Verified</div>
+          <div class="badge">✦ PoPI Commitment & Policy Invariants Verified</div>
         </div>
 
         <div class="card success" id="success">

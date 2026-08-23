@@ -222,7 +222,7 @@ export function MultiMerchantCartView({ onExecutePurchase, onTriggerCheckout }) 
                 }}
               >
                 <div style={{ fontWeight: '700', fontSize: '0.82rem', color: 'var(--brand-primary)' }}>
-                  💰 Lowest Cost
+                  ◆ Lowest Cost
                 </div>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px' }}>
                   ₹{cartOptimization?.final_payable_inr?.toLocaleString('en-IN')} • 2-3 days
@@ -238,7 +238,7 @@ export function MultiMerchantCartView({ onExecutePurchase, onTriggerCheckout }) 
                 }}
               >
                 <div style={{ fontWeight: '700', fontSize: '0.82rem', color: '#f97316' }}>
-                  ⚡ Air Express
+                  ✦ Air Express
                 </div>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px' }}>
                   ₹{cartOptimization?.speed_optimized_plan?.total_inr?.toLocaleString('en-IN')} • 24 hours

@@ -6,7 +6,7 @@ export function ConversationalChat({ onExecutePurchase, onSelectTab }) {
     {
       id: 'init_1',
       role: 'agent',
-      content: "👋 Greetings! I'm **VERITY**, your autonomous AI Buyer & Procurement Agent on Razorpay rails.\n\nI dynamically navigate verified merchant catalogs, negotiate multi-round concessions with seller agents, and enforce strict mathematical spending invariants (PoPI) before checkouts.\n\n**Try voice or text instructions:**\n• *\"Buy a wireless mechanical keyboard under ₹4,500\"*\n• *\"Negotiate the best deal for ANC headphones\"*\n• *\"What is the warranty policy for KeyChron keyboards?\"*",
+      content: "✦ System Initialized: **VERITY** — Autonomous AI Buyer & Procurement Agent on Razorpay Rails.\n\nI dynamically navigate federated merchant catalogs, negotiate multi-round concessions with seller agents, and enforce strict mathematical spending invariants (PoPI) before checkouts.\n\n**Sample Directives:**\n• *\"Buy a wireless mechanical keyboard under ₹4,500\"*\n• *\"Negotiate the best deal for ANC headphones\"*\n• *\"What is the warranty policy for KeyChron keyboards?\"*",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       data: null
     }
@@ -24,7 +24,7 @@ export function ConversationalChat({ onExecutePurchase, onSelectTab }) {
   const speakText = (text) => {
     if (!ttsEnabled || !window.speechSynthesis) return;
     window.speechSynthesis.cancel();
-    const cleanText = text.replace(/[*_#`]/g, '').slice(0, 200);
+    const cleanText = text.replace(/[*_#`✦•▪]/g, '').slice(0, 200);
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.rate = 1.05;
     utterance.pitch = 1.0;
@@ -80,9 +80,9 @@ export function ConversationalChat({ onExecutePurchase, onSelectTab }) {
     if (l.includes('urgent') || l.includes('asap') || l.includes('fast') || l.includes('emergency')) {
       setDetectedSentiment("⚡ HIGH URGENCY");
     } else if (l.includes('cheap') || l.includes('budget') || l.includes('lowest') || l.includes('discount')) {
-      setDetectedSentiment("💰 STRICT BUDGET");
+      setDetectedSentiment("◆ STRICT BUDGET");
     } else if (input.trim().length > 0) {
-      setDetectedSentiment("🎯 BALANCED QUALITY");
+      setDetectedSentiment("✦ BALANCED QUALITY");
     } else {
       setDetectedSentiment("NORMAL");
     }
@@ -125,7 +125,7 @@ export function ConversationalChat({ onExecutePurchase, onSelectTab }) {
       setMessages(prev => [...prev, {
         id: 'err_' + Date.now(),
         role: 'agent',
-        content: "⚠️ Communication error with the agent service. Please ensure FastAPI is running on port 8000.",
+        content: "▪ Communication error with the agent service. Please ensure FastAPI is running on port 8000.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       }]);
     } finally {
@@ -171,9 +171,9 @@ export function ConversationalChat({ onExecutePurchase, onSelectTab }) {
               <Bot size={18} color="#04131d" />
             </div>
             <div>
-              <div style={{ fontWeight: '700', fontSize: '0.92rem' }}>VERITY Buyer Assistant</div>
+              <div style={{ fontWeight: '700', fontSize: '0.92rem' }}>VERITY Autonomous Assistant</div>
               <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>
-                Conversational Commerce & Voice Procurement
+                Conversational Commerce & Voice Procurement Engine
               </div>
             </div>
           </div>

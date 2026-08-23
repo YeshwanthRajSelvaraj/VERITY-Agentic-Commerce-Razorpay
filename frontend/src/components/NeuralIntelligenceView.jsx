@@ -104,7 +104,7 @@ export function NeuralIntelligenceView() {
             </p>
           </div>
           <div className="text-mono" style={{ background: 'rgba(0,0,0,0.3)', padding: '8px 12px', borderRadius: '8px', fontSize: '0.72rem', color: '#818cf8', marginTop: '12px' }}>
-            ⚡ Vector Retrieval Latency: 184 μs
+            ✦ Vector Retrieval Latency: 184 μs
           </div>
         </div>
 
@@ -121,7 +121,7 @@ export function NeuralIntelligenceView() {
             </p>
           </div>
           <div className="text-mono" style={{ background: 'rgba(0,0,0,0.3)', padding: '8px 12px', borderRadius: '8px', fontSize: '0.72rem', color: '#34d399', marginTop: '12px' }}>
-            📈 Projected AOV Lift: +19.4% GMV
+            ◆ Projected AOV Lift: +19.4% GMV
           </div>
         </div>
 
@@ -138,7 +138,7 @@ export function NeuralIntelligenceView() {
             </p>
           </div>
           <div className="text-mono" style={{ background: 'rgba(0,0,0,0.3)', padding: '8px 12px', borderRadius: '8px', fontSize: '0.72rem', color: '#fb923c', marginTop: '12px' }}>
-            🛡️ Anomaly Threshold: MSE &gt; 0.045
+            ▪ Anomaly Threshold: MSE &gt; 0.045
           </div>
         </div>
 
@@ -155,7 +155,7 @@ export function NeuralIntelligenceView() {
             </p>
           </div>
           <div className="text-mono" style={{ background: 'rgba(0,0,0,0.3)', padding: '8px 12px', borderRadius: '8px', fontSize: '0.72rem', color: '#f472b6', marginTop: '12px' }}>
-            📊 Forecast Horizon: 14 Days (96.8% Acc)
+            › Forecast Horizon: 14 Days (96.8% Acc)
           </div>
         </div>
 
