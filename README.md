@@ -1,4 +1,4 @@
-# VERITY AI ⚡
+# VERITY AI
 
 > **Autonomous Bounded Agentic Commerce on Razorpay Rails**  
 > *Submitted for the Razorpay AI Builder Internship 2026 Buildathon — Track 1: AI Growth & Agentic Commerce*
@@ -13,7 +13,7 @@
 
 ---
 
-## 🎯 Executive Summary
+## ✦ Executive Summary
 
 Today's AI agents can search the web and recommend products, but they **cannot safely transact** on behalf of users. Without a verifiable trust layer, giving an AI access to payment rails risks hallucinations, dynamic price-spike overspends, out-of-stock crashes, and unapproved spending.
 
@@ -27,7 +27,7 @@ Today's AI agents can search the web and recommend products, but they **cannot s
 
 ---
 
-## 🏛️ System Architecture
+## ◆ System Architecture
 
 ```
                                   USER DIRECTIVE (Voice or Text)
@@ -86,7 +86,7 @@ Today's AI agents can search the web and recommend products, but they **cannot s
 
 ---
 
-## ⚡ Core Features & Capabilities
+## ✦ Core Features & Capabilities
 
 ### 1. Live Razorpay Test-Mode Integration
 - Real Razorpay test order creation (amounts in Paise: 1 INR = 100 Paise).
@@ -169,7 +169,7 @@ Today's AI agents can search the web and recommend products, but they **cannot s
 
 ---
 
-## 🛠️ Technology Stack
+## ◆ Technology Stack
 
 | Layer | Technologies |
 |---|---|
@@ -181,7 +181,7 @@ Today's AI agents can search the web and recommend products, but they **cannot s
 
 ---
 
-## 💻 Quick Start Guide
+## ✦ Quick Start Guide
 
 ### Prerequisites
 - Python 3.10+
@@ -209,7 +209,7 @@ npm run dev
 
 ---
 
-## 🧪 Automated Test Suite
+## ◆ Automated Test Suite
 
 Run the full automated test suite verifying all 17 features:
 
@@ -229,7 +229,7 @@ OK (100% Passing)
 
 ---
 
-## 📁 Repository Structure
+## ✦ Repository Structure
 
 ```
 razorcart-ai/
@@ -298,7 +298,7 @@ razorcart-ai/
 
 ---
 
-## 🏆 Hackathon Submission Notes
+## ◆ Hackathon Submission Notes
 
 - **Track**: Track 1: AI Growth & Agentic Commerce
 - **Buildathon**: Razorpay AI Builder Internship 2026
@@ -311,6 +311,6 @@ razorcart-ai/
 
 ---
 
-## 📄 License
+## ✦ License
 
 MIT License. Developed for the Razorpay AI Builder Internship 2026 Buildathon.
