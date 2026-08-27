@@ -4,6 +4,10 @@
 > *Submitted to the Razorpay AI Builder Track 1: AI Growth & Agentic Commerce*  
 > *Protocol Version: 1.0.0-Enterprise • Formal Classification: Autonomous Financial Systems (AFS-L3)*
 
+[![Live Demo on Vercel](https://img.shields.io/badge/Live%20Demo-Vercel%20Production-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://verity-agentic-commerce.vercel.app)
+[![API Backend](https://img.shields.io/badge/FastAPI%20Backend-Render%20Live-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://verity-backend.onrender.com)
+[![Swagger Docs](https://img.shields.io/badge/API%20Docs-Interactive%20Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://verity-backend.onrender.com/docs)
+
 [![Razorpay Test Rails](https://img.shields.io/badge/Razorpay-Live%20Test%20Mode-blue?style=flat-square&logo=razorpay)](https://razorpay.com)
 [![PoPI Cryptography](https://img.shields.io/badge/PoPI-Proof--of--Policy%20Invariant-059669?style=flat-square)](https://github.com)
 [![Post-Quantum Security](https://img.shields.io/badge/NIST%20FIPS%20204-ML--DSA--65%20Lattice-6366f1?style=flat-square)](https://csrc.nist.gov)
@@ -11,6 +15,17 @@
 [![Test Suite](https://img.shields.io/badge/Automated%20Verification-28%2F28%20Passing-10b981?style=flat-square)](https://github.com)
 [![Language](https://img.shields.io/badge/Python-3.12%20%7C%20FastAPI-3776AB?style=flat-square&logo=python)](https://fastapi.tiangolo.com)
 [![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Vite%206-61DAFB?style=flat-square&logo=react)](https://vitejs.dev)
+
+---
+
+## 🌐 Quick Access & Live Deployments
+
+| Resource | URL | Status | Description |
+|---|---|---|---|
+| 🚀 **Live Web Application (Vercel)** | **[`verity-agentic-commerce.vercel.app`](https://verity-agentic-commerce.vercel.app)** | 🟢 **Live** | Full Interactive React 18 / Vite Web App with Voice & Multi-Agent Swarm |
+| ⚡ **Live API Service (Render)** | **[`verity-backend.onrender.com`](https://verity-backend.onrender.com)** | 🟢 **Live** | FastAPI Backend running NIST FIPS 204 PQC & Vulcan AI Engine |
+| 📖 **Interactive API Documentation** | **[`verity-backend.onrender.com/docs`](https://verity-backend.onrender.com/docs)** | 🟢 **Live** | Interactive OpenAPI / Swagger interface for testing endpoints |
+| 🏆 **90-Second Judge Auto-Tour** | **[Launch via Web App](https://verity-agentic-commerce.vercel.app)** | 🟢 **Live** | In-app 1-click cinematic walkthrough for hackathon evaluators |
 
 ---
 
