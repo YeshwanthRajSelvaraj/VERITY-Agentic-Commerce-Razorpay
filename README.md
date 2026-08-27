@@ -27,6 +27,9 @@
 | 📖 **Interactive API Documentation** | **[`verity-backend.onrender.com/docs`](https://verity-backend.onrender.com/docs)** | 🟢 **Live** | Interactive OpenAPI / Swagger interface for testing endpoints |
 | 🏆 **90-Second Judge Auto-Tour** | **[Launch via Web App](https://verity-agentic-commerce-razorpay.vercel.app)** | 🟢 **Live** | In-app 1-click cinematic walkthrough for hackathon evaluators |
 
+> [!NOTE]
+> **Live Interface Tip**: If the real-time telemetry charts, latency waterfall, or neural graph visualizers do not render immediately on initial page load, please perform a **Hard Refresh** (`Ctrl + F5` on Windows/Linux or `Cmd + Shift + R` on macOS) to ensure all WebGL canvas elements and SVG assets reload freshly from the CDN.
+
 ---
 
 ## ✦ Abstract & Problem Statement
