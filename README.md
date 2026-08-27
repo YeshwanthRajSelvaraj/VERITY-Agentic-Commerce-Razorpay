@@ -44,47 +44,34 @@ Autonomous Generative AI agents increasingly interact with open product catalogs
 ## ◆ Enterprise Architecture & Data Flow
 
 ```mermaid
-flowchart TD
-    subgraph INGRESS ["✦ Ingress & Context Parsing Layer"]
-        A["User Directive (Voice / Text)"] --> B["Security Guard & Injection Filter"]
-        B --> C["Sentiment & Urgency Analyzer"]
-        C --> D["Idempotency Cache (TTL 3600s)"]
-    end
-
-    subgraph INTELLIGENCE ["◆ Retrieval & Multi-Agent Deliberation"]
-        D --> E["RAG Commerce Knowledge Engine (64-Dim Vectors)"]
-        E --> F["A2A Game-Theoretic Bargaining Arena"]
-        F <--> G["NovaTech Agent"]
-        F <--> H["ByteForge Agent"]
-        F <--> I["DevDesk Agent"]
-    end
-
-    subgraph VERIFICATION ["▪ Deterministic Invariant Gate (PoPI)"]
-        F --> J["Policy Engine: Mathematical Bounds Check"]
-        J -->|Satisfied| K["PoPI Cryptographic Attestation Generator"]
-        J -->|Breached| L["Failure Recovery Suite (5 Scenarios)"]
-        L --> M["Automated In-Stock Counter-Offer Link"]
-    end
-
-    subgraph SETTLEMENT ["✦ Razorpay Financial Rails"]
-        K --> N["Razorpay Orders API (Test Mode)"]
-        N --> O["Razorpay Checkout Flow & Payment Simulation"]
-        O --> P["HMAC-SHA256 Webhook Verification"]
-        P --> Q["Razorpay Route: Atomic Multi-Merchant Split"]
-    end
-
-    subgraph AUDIT ["◆ Quantum-Safe Ledger & Observability"]
-        K --> R["NIST FIPS 204 ML-DSA-65 Lattice Signer"]
-        Q --> R
-        R --> S["SHA3-512 Merkle Block Chain Ledger"]
-        S --> T["Telemetry Dashboard & CSV/JSON Export Engine"]
-    end
-
-    style INGRESS fill:#0a192f,stroke:#00d2d3,stroke-width:1px,color:#fff
-    style INTELLIGENCE fill:#0d1b2a,stroke:#38bdf8,stroke-width:1px,color:#fff
-    style VERIFICATION fill:#111827,stroke:#34d399,stroke-width:1px,color:#fff
-    style SETTLEMENT fill:#1e1b4b,stroke:#818cf8,stroke-width:1px,color:#fff
-    style AUDIT fill:#18181b,stroke:#c084fc,stroke-width:1px,color:#fff
+graph TD
+    A["User Procurement Directive (Voice / Text)"] --> B["Security Guard & Prompt-Injection Filter"]
+    B --> C["Sentiment & Urgency Analyzer"]
+    C --> D["Idempotency Cache Engine"]
+    D --> E["RAG Commerce Knowledge Engine (64-Dim Vectors)"]
+    E --> F["A2A Game-Theoretic Bargaining Arena"]
+    
+    F --> G["NovaTech Agent"]
+    F --> H["ByteForge Agent"]
+    F --> I["DevDesk Agent"]
+    
+    G --> J["Policy Engine: Mathematical Bounds Check"]
+    H --> J
+    I --> J
+    
+    J -->|Within Policy Bounds| K["PoPI Cryptographic Attestation Generator"]
+    J -->|Budget Limit Breached| L["Failure Recovery Suite (5 Scenarios)"]
+    L --> M["Automated In-Stock Counter-Offer Link"]
+    
+    K --> N["Razorpay Orders API (Test Mode)"]
+    N --> O["Razorpay Checkout & Payment Simulation"]
+    O --> P["HMAC-SHA256 Webhook Verification"]
+    P --> Q["Razorpay Route: Multi-Merchant Split"]
+    
+    K --> R["NIST FIPS 204 ML-DSA-65 Lattice Signer"]
+    Q --> R
+    R --> S["SHA3-512 Merkle Block Chain Ledger"]
+    S --> T["Telemetry Dashboard & Export Engine"]
 ```
 
 ---
@@ -130,20 +117,20 @@ $$\Sigma_k = \text{Sign}_{\text{ML-DSA-65}}\big(\text{SK}_{\text{agent}}, \mathc
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Buyer as VERITY Buyer Agent
+    actor Buyer as VERITY Buyer Agent
     participant Policy as PoPI Invariant Engine
     participant A2A as Federated Merchant Swarm
     participant Rails as Razorpay Orders API
     participant Ledger as Quantum-Safe Audit Ledger
 
-    Buyer->>Policy: Submit Mandate Tuple P
-    Policy->>Policy: Compute Assertion Predicate Φ(X, P)
+    Buyer->>Policy: Submit Mandate Tuple (Budget & Invariants)
+    Policy->>Policy: Compute Assertion Predicate
     alt Invariant Check Passed
-        Policy->>Buyer: Return Cryptographic Token σ_PoPI
+        Policy->>Buyer: Return Cryptographic Token (PoPI)
         Buyer->>A2A: Initiate 3-Round Bargaining
         A2A-->>Buyer: Return Pareto-Optimal Concession
-        Buyer->>Rails: POST /v1/orders with X-Razorpay-Agent-PoPI
-        Rails-->>Buyer: Return order_id & Payment Mandate
+        Buyer->>Rails: POST /v1/orders with PoPI Header
+        Rails-->>Buyer: Return order_id and Payment Mandate
         Buyer->>Ledger: Append Merkle Block (Signed via ML-DSA-65)
         Ledger-->>Buyer: Chain Integrity Verified
     else Invariant Check Failed
