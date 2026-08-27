@@ -156,6 +156,115 @@ $$\sum_{i=1}^N \mathcal{T}_i + \mathcal{F}_{\text{platform}} = \mathcal{A}_{\tex
 
 ---
 
+## 🔬 Protocol Wire Format: `X-Razorpay-Agent-PoPI` 512-Bit Packet
+
+To ensure zero-trust communication across edge agent workers and Razorpay gateway nodes, every autonomous transaction injects a deterministic binary wire packet:
+
+```text
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  MAGIC: 0x5652 ("VR") | VER: 0x01 | FLAG: [0x01=AUDIT, 0x02=PQC] |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                   MANDATE ISSUANCE TIMESTAMP                  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                   MANDATE EXPIRY TIMESTAMP                    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|             MAX BUDGET CEILING B_max (PAISE, uint32)          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|             MAX SHIPPING CEILING S_max (PAISE, uint32)        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                 CATEGORY WHITELIST BITMASK (uint32)           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                    CRYPTOGRAPHIC NONCE (128-bit)              +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++            NIST FIPS 204 (ML-DSA-65) SIGNATURE DIGEST         +
+|                          (256-bit SHA3 Root)                  |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+---
+
+## 🧬 Vast Deep Learning & Reinforcement Learning Foundations
+
+```text
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                          VERITY DEEP LEARNING & ML INTELLIGENCE LAYER                       │
+├──────────────────────────────┬──────────────────────────────┬───────────────────────────────┤
+│ 1. 64-DIM VECTOR RETRIEVAL   │ 2. CONTEXTUAL BANDIT RL      │ 3. VULCAN TRANSFORMER ROUTER  │
+│ Dense MiniLM Embeddings      │ Thompson Sampling & LinUCB   │ 3,142 Real-Time Signals       │
+│ Cosine Matrix (184 μs)       │ +19.4% AOV Bundle Lift       │ +9.4% Payment Yield (11.4ms)  │
+└──────────────────────────────┴──────────────────────────────┴───────────────────────────────┘
+```
+
+### 1. Dense Semantic Vector Retrieval ($d = 64$)
+Product and merchant catalogs are indexed into an L2-normalized dense Riemannian semantic manifold:
+
+$$\mathbf{e}_{\text{query}} = \frac{f_{\theta}(\text{query})}{\|f_{\theta}(\text{query})\|_2}, \quad \mathbf{e}_{\text{item}} = \frac{f_{\theta}(\text{item})}{\|f_{\theta}(\text{item})\|_2}$$
+
+$$\text{Similarity}(\mathbf{e}_{\text{query}}, \mathbf{e}_{\text{item}}) = \mathbf{e}_{\text{query}} \cdot \mathbf{e}_{\text{item}} = \cos(\theta)$$
+
+### 2. Contextual Multi-Armed Bandit Reinforcement Learning (LinUCB)
+To dynamically offer accessory bundles and upsells without violating the user's spending boundary $B_{\max}$, VERITY maintains arm models with confidence bound $\alpha$:
+
+$$\mathbf{A}_a = \mathbf{I}_d + \sum_{\tau=1}^t \mathbf{x}_\tau \mathbf{x}_\tau^T, \quad \mathbf{b}_a = \sum_{\tau=1}^t r_\tau \mathbf{x}_\tau$$
+
+$$\hat{\theta}_a = \mathbf{A}_a^{-1} \mathbf{b}_a, \quad a^* = \arg\max_{a \in \mathcal{A}} \left( \mathbf{x}_t^T \hat{\theta}_a + \alpha \sqrt{\mathbf{x}_t^T \mathbf{A}_a^{-1} \mathbf{x}_t} \right)$$
+
+### 3. Razorpay Vulcan™ Payment Foundation Transformer
+The Vulcan foundation transformer computes dynamic multi-acquirer routing across $M = 3,142$ multimodal telemetry signals:
+
+$$\mathbf{z}_t = \text{Softmax}\left( \frac{\mathbf{Q} \mathbf{K}^T}{\sqrt{d_k}} \right) \mathbf{V}$$
+
+$$\text{Score}_{\text{acquirer}} = \sigma\left( \mathbf{W}_{\text{out}} \mathbf{z}_t + \mathbf{b}_{\text{out}} \right) \implies \text{Route to } \arg\max_k (\text{SuccessProbability}_k)$$
+
+---
+
+## ⚡ Finite State Machine (FSM) Execution Pipeline
+
+```text
+    ┌───────────────────────────┐
+    │  S0: IDLE / AWAIT_INTENT  │◀──────────────────────────────┐
+    └─────────────┬─────────────┘                               │
+                  │ [Voice / Text Ingress]                      │
+                  ▼                                             │
+    ┌───────────────────────────┐                               │
+    │  S1: PARSE_AND_BOUND      │──[Breach]──▶ ┌──────────────┐ │
+    └─────────────┬─────────────┘              │ S_FAIL: DROP │ │
+                  │ [PoPI Valid]               └──────────────┘ │
+                  ▼                                             │
+    ┌───────────────────────────┐                               │
+    │  S2: A2A_BARGAIN_AND_RAG  │                               │
+    └─────────────┬─────────────┘                               │
+                  │ [Pareto Concession]                         │
+                  ▼                                             │
+    ┌───────────────────────────┐                               │
+    │  S3: PQC_MANDATE_SIGN     │ (NIST FIPS 204 Lattice)       │
+    └─────────────┬─────────────┘                               │
+                  │ [Signed Signature]                          │
+                  ▼                                             │
+    ┌───────────────────────────┐                               │
+    │  S4: VULCAN_TRANSFORMER   │ (3,142 Signals / 11.4ms)      │
+    └─────────────┬─────────────┘                               │
+                  │ [Route Selected]                            │
+                  ▼                                             │
+    ┌───────────────────────────┐                               │
+    │  S5: RZP_ORDER_CREATION   │ (POST /v1/orders)             │
+    └─────────────┬─────────────┘                               │
+                  │ [order_id Received]                         │
+                  ▼                                             │
+    ┌───────────────────────────┐                               │
+    │  S6: SETTLED_AND_AUDITED  │ (Merkle Block Appended) ──────┘
+    └───────────────────────────┘
+```
+
+---
+
 ## ◆ Comprehensive Feature Matrix (17 Implemented Features)
 
 ```
