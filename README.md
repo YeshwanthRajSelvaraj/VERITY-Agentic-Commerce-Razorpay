@@ -43,35 +43,46 @@ Autonomous Generative AI agents increasingly interact with open product catalogs
 
 ## ◆ Enterprise Architecture & Data Flow
 
-```mermaid
-graph TD
-    A["User Procurement Directive (Voice / Text)"] --> B["Security Guard & Prompt-Injection Filter"]
-    B --> C["Sentiment & Urgency Analyzer"]
-    C --> D["Idempotency Cache Engine"]
-    D --> E["RAG Commerce Knowledge Engine (64-Dim Vectors)"]
-    E --> F["A2A Game-Theoretic Bargaining Arena"]
-    
-    F --> G["NovaTech Agent"]
-    F --> H["ByteForge Agent"]
-    F --> I["DevDesk Agent"]
-    
-    G --> J["Policy Engine: Mathematical Bounds Check"]
-    H --> J
-    I --> J
-    
-    J -->|Within Policy Bounds| K["PoPI Cryptographic Attestation Generator"]
-    J -->|Budget Limit Breached| L["Failure Recovery Suite (5 Scenarios)"]
-    L --> M["Automated In-Stock Counter-Offer Link"]
-    
-    K --> N["Razorpay Orders API (Test Mode)"]
-    N --> O["Razorpay Checkout & Payment Simulation"]
-    O --> P["HMAC-SHA256 Webhook Verification"]
-    P --> Q["Razorpay Route: Multi-Merchant Split"]
-    
-    K --> R["NIST FIPS 204 ML-DSA-65 Lattice Signer"]
-    Q --> R
-    R --> S["SHA3-512 Merkle Block Chain Ledger"]
-    S --> T["Telemetry Dashboard & Export Engine"]
+```text
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                            ✦ INGRESS & CONTEXT PARSING LAYER                                │
+│   [ User Directive (Voice / Text) ] ──▶ [ Security Guard ] ──▶ [ Idempotency Cache (3600s) ] │
+└──────────────────────────────────────────────┬──────────────────────────────────────────────┘
+                                               │
+                                               ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                       ◆ RETRIEVAL & MULTI-AGENT DELIBERATION                                │
+│   [ 64-Dim RAG Knowledge Engine ] ──▶ [ A2A Game-Theoretic Bargaining Arena ]                │
+│                                                │                                            │
+│                 ┌──────────────────────────────┼──────────────────────────────┐              │
+│                 ▼                              ▼                              ▼              │
+│       [ NovaTech Agent ]             [ ByteForge Agent ]            [ DevDesk Agent ]        │
+└──────────────────────────────────────────────┬──────────────────────────────────────────────┘
+                                               │
+                                               ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                      ▪ DETERMINISTIC INVARIANT GATE (PoPI ENGINE)                           │
+│   [ Mathematical Bounds Check ] ──┬──▶ [ PASSED: Cryptographic PoPI Mandate Generator ]      │
+│                                   └──▶ [ BREACHED: 5-Scenario Recovery & Counter-Offers ]   │
+└──────────────────────────────────────────────┬──────────────────────────────────────────────┘
+                                               │
+                                               ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                           ✦ RAZORPAY FINANCIAL SETTLEMENT RAILS                             │
+│   [ Razorpay Orders API ] ──▶ [ Test Mode Checkout ] ──▶ [ HMAC-SHA256 Webhook ]            │
+│                                                │                                            │
+│                                                ▼                                            │
+│                           [ Razorpay Route: Multi-Merchant Split ]                          │
+└──────────────────────────────────────────────┬──────────────────────────────────────────────┘
+                                               │
+                                               ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                        ◆ POST-QUANTUM AUDIT & OBSERVABILITY                                 │
+│   [ NIST FIPS 204 ML-DSA-65 Signer ] ──▶ [ SHA3-512 Merkle Block Chain Ledger ]             │
+│                                                │                                            │
+│                                                ▼                                            │
+│                           [ Real-Time Telemetry & JSON/CSV Export ]                         │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -114,30 +125,19 @@ $$\mathcal{H}_k = \text{SHA3-512}\big(\mathcal{B}_k \parallel \mathcal{H}_{k-1}\
 
 $$\Sigma_k = \text{Sign}_{\text{ML-DSA-65}}\big(\text{SK}_{\text{agent}}, \mathcal{H}_k\big)$$
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Buyer as VERITY Buyer Agent
-    participant Policy as PoPI Invariant Engine
-    participant A2A as Federated Merchant Swarm
-    participant Rails as Razorpay Orders API
-    participant Ledger as Quantum-Safe Audit Ledger
-
-    Buyer->>Policy: Submit Mandate Tuple (Budget & Invariants)
-    Policy->>Policy: Compute Assertion Predicate
-    alt Invariant Check Passed
-        Policy->>Buyer: Return Cryptographic Token (PoPI)
-        Buyer->>A2A: Initiate 3-Round Bargaining
-        A2A-->>Buyer: Return Pareto-Optimal Concession
-        Buyer->>Rails: POST /v1/orders with PoPI Header
-        Rails-->>Buyer: Return order_id and Payment Mandate
-        Buyer->>Ledger: Append Merkle Block (Signed via ML-DSA-65)
-        Ledger-->>Buyer: Chain Integrity Verified
-    else Invariant Check Failed
-        Policy->>Buyer: Raise PolicyViolationException
-        Buyer->>Buyer: Trigger Failure Recovery Suite
-        Buyer->>Ledger: Log Blocked Attempt
-    end
+```text
+  [ VERITY Buyer Agent ]           [ PoPI Invariant Engine ]        [ Razorpay Orders API ]        [ Quantum-Safe Ledger ]
+            │                                  │                               │                             │
+            │── 1. Submit Mandate Tuple ──────▶│                               │                             │
+            │                                  │── 2. Bounds Assertion ──┐     │                             │
+            │                                  │◀─ (Budget & Category) ──┘     │                             │
+            │◀─ 3. Return PoPI Token σ_PoPI ───│                               │                             │
+            │                                                                  │                             │
+            │── 4. POST /v1/orders (with X-Razorpay-Agent-PoPI) ──────────────▶│                             │
+            │◀─ 5. Return order_id & Payment Mandate ──────────────────────────│                             │
+            │                                                                                                │
+            │── 6. Append Merkle Block (Signed via NIST FIPS 204 ML-DSA-65) ────────────────────────────────▶│
+            │◀─ 7. Confirm Quantum-Resistant Hash Chain Integrity ───────────────────────────────────────────│
 ```
 
 ---
